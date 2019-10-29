@@ -1,0 +1,25 @@
+light 20 60 30 .7 .7 .7 	!put a light at (20,60,30),color(.7 .7 .7)
+ambient .7 .7 .7 		! set material properties for all of the objects
+diffuse .6 .6 .6 
+background .9 .9 .9
+specular 1 1 1
+specularExponent 50
+
+def leg{push translate 0 .2 0 scale .01 .2 .01 cube pop}
+def cube1{ scale .1 .1 .1 rotate 45 1 0 1 cube pop}
+def chair{
+
+push translate 0 .4 0 scale .3 .01 .3 cube pop !chair seat
+push translate -.3 .8 0 scale .01 .4 .3 cube pop !chair back
+push
+translate .275 0 .275 use leg
+translate 0 0 -.55 use leg
+translate -.55 0 .55 use leg
+translate 0 0 -.55 use leg
+}
+diffuse .9 .1 .1
+
+push translate 0 .575 0 use cube1!The center of the table top is at .4 and it extends .005 in each direction 
+
+diffuse .1 .1 .9
+push translate  0 0 0 use chair pop
